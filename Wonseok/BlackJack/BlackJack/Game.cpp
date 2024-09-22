@@ -88,14 +88,20 @@ void Game::startBlackJack() {
 	// 블랙잭 예외 처리
 	if (player.calculateSum() == 21 && dealer.calculateSum() != 21) {
 		blackJackWin(); // 플레이어 승리
+		player.reset();
+		dealer.reset();
 		return;
 	}
 	else if (dealer.calculateSum() == 21) {
 		std::cout << "Dealer has BlackJack. You lose" << std::endl;
+		player.reset();
+		dealer.reset();
 		return;
 	}
 	else if (player.calculateSum() == 21 && dealer.calculateSum() == 21) {
 		std::cout << "Both have BlackJack. Push." << std::endl;
+		player.reset();
+		dealer.reset();
 		return;
 	}
 

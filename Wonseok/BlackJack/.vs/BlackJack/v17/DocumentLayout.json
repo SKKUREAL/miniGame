@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|solutionrelative:BlackJack\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|solutionrelative:BlackJack\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Card.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|solutionrelative:BlackJack\\Card.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|solutionrelative:BlackJack\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B7799A2-930F-4A83-B522-CB56EA2BC258}|BlackJack\\BlackJack.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Card.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,24 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Game.cpp",
               "RelativeDocumentMoniker": "BlackJack\\Game.cpp",
               "ToolTip": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Game.cpp",
               "RelativeToolTip": "BlackJack\\Game.cpp",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAAHoAAAABAAAA",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAAAH8AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-22T05:32:08.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Player.cpp",
               "RelativeDocumentMoniker": "BlackJack\\Player.cpp",
@@ -72,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Card.cpp",
               "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Card.cpp",
               "RelativeDocumentMoniker": "BlackJack\\Card.cpp",
@@ -80,12 +80,11 @@
               "RelativeToolTip": "BlackJack\\Card.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-21T12:57:07.439Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T12:57:07.439Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Dealer.h",
               "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Dealer.h",
               "RelativeDocumentMoniker": "BlackJack\\Dealer.h",
@@ -93,12 +92,11 @@
               "RelativeToolTip": "BlackJack\\Dealer.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-21T12:58:06.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T12:58:06.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\BlackJack\\BlackJack\\Player.h",
               "RelativeDocumentMoniker": "BlackJack\\Player.h",
@@ -106,8 +104,7 @@
               "RelativeToolTip": "BlackJack\\Player.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-21T12:57:58.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T12:57:58.342Z"
             },
             {
               "$type": "Document",
@@ -119,8 +116,7 @@
               "RelativeToolTip": "BlackJack\\Card.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-21T12:57:42.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T12:57:42.227Z"
             },
             {
               "$type": "Document",
@@ -132,8 +128,7 @@
               "RelativeToolTip": "BlackJack\\Dealer.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-21T12:57:23.115Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T12:57:23.115Z"
             },
             {
               "$type": "Document",
@@ -145,8 +140,7 @@
               "RelativeToolTip": "BlackJack\\Game.h",
               "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-21T12:58:14.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T12:58:14.007Z"
             }
           ]
         }
