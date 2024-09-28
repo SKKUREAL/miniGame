@@ -9,3 +9,8 @@ void Player::setCredit(int inCredit)
 {
 	mCredit = inCredit;
 }
+
+void Player::decreaseCredit(int amount)
+{
+	mCredit -= amount;
+}

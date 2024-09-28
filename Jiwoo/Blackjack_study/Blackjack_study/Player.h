@@ -16,6 +16,7 @@ public:
 
 	void setName(string&& inName); // 레퍼런스 전달로 객체 복사 비용 절감
 	void setCredit(int inCredit);
+	void decreaseCredit(int amount);
 private:
 	string mName;
 	int mCredit;

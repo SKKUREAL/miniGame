@@ -11,7 +11,7 @@ void BlackjackManager::PlayGame(Player& player)
 	while (true) // 게임 진행
 	{
 		ShowInterface(player, playerSelection); // Interface를 보여주고, 플레이어의 선택을 받아옴.
-		PlayAction(playerSelection);
+		PlayAction(player, playerSelection);
 		ChangeState(playerSelection); // 받아온 플레이어의 선택을 기반으로 다음 state를 결정
 	}
 }
@@ -20,7 +20,6 @@ void BlackjackManager::ShowInterface(const Player& player, int& playerSelection)
 {
 	// 공통 출력부----------------------------------------------------------------
 	cout << "###############################################################\n";
-	cout << "Round: " << mRoundNum << "\n";
 	cout << "\n";
 
 	// State dependent 출력부
@@ -60,13 +59,16 @@ void BlackjackManager::ShowInterface(const Player& player, int& playerSelection)
 void BlackjackManager::ChangeState(const int& playerSelection)
 {
 	switch (mGameState) {
+
 	case BlackjackGameState::Idle:
 		if (playerSelection == 1) mGameState = BlackjackGameState::Bet;
-		else exit(0); // 블랙잭 게임장 나가기 여기 구현
+		else exit(0); // TODO: 블랙잭 게임장 나가기
 		break;
+
 	case BlackjackGameState::Bet:
 		mGameState = BlackjackGameState::DistributeCard;
 		break;
+
 	case BlackjackGameState::DistributeCard:
 		if (bBust || bBlackjack)
 		{
@@ -77,6 +79,7 @@ void BlackjackManager::ChangeState(const int& playerSelection)
 			mGameState = BlackjackGameState::Action;
 		}
 		break;
+
 	case BlackjackGameState::Action:
 		switch (playerSelection) {
 		case 2:
@@ -90,16 +93,78 @@ void BlackjackManager::ChangeState(const int& playerSelection)
 			break;
 		}
 		break;
+
+	case BlackjackGameState::DoubleDown:
+		mGameState = BlackjackGameState::DealerPlay;
+		break;
+
+	case BlackjackGameState::Hit:
+		if (bBust) {
+			mGameState = BlackjackGameState::Adjustment;
+			break;
+		}
+		switch (playerSelection) {
+		case 1:
+			// hit again
+			mGameState = BlackjackGameState::Hit;
+			break;
+		default:
+			// stand
+			mGameState = BlackjackGameState::DealerPlay;
+			break;
+		}
+		break;
+
 	case BlackjackGameState::DealerPlay:
 		mGameState = BlackjackGameState::Adjustment;
 		break;
+
 	case BlackjackGameState::Adjustment:
 		mGameState = BlackjackGameState::Idle;
 		break;
 	}
 }
 
-void BlackjackManager::PlayAction(const int& playerSelection)
+void BlackjackManager::PlayAction(Player& player, const int& playerSelection)
 {
+	switch (mGameState) {
+	case BlackjackGameState::Idle:
+		// 게임 상태 초기화
+		mBetAmount = 0;
+		bBust = false;
+		bBlackjack = false;
+		mDeck.Shuffle();
+		break;
 
+	case BlackjackGameState::Bet:
+		// 플레이어 돈에서 차감
+		player.decreaseCredit(playerSelection);
+		// 베팅 금액에 저장
+		mBetAmount = playerSelection;
+		break;
+
+	case BlackjackGameState::DistributeCard:
+		
+		break;
+
+	case BlackjackGameState::Action:
+		
+		break;
+
+	case BlackjackGameState::DoubleDown:
+
+		break;
+
+	case BlackjackGameState::Hit:
+
+		break;
+
+	case BlackjackGameState::DealerPlay:
+		
+		break;
+
+	case BlackjackGameState::Adjustment:
+		
+		break;
+	}
 }
