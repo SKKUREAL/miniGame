@@ -9,17 +9,16 @@ Player::Player() : Sum(0), aceCount(0)/*, hand()*/ {}// Player 생성자, 아무것도 
 void Player::addCard(const Card& card) {
 	hand.push_back(card); // hand 벡터에 새 카드를 추가
 
-	if (card.isAce()) {
+	if (card.isAce()) { // 상수함수라 const 객체에서도 호출할 수 있다.
 		aceCount++;
 	}
 }
 
 // 합 계산 함수
 int Player::calculateSum() {
-	int Sum = 0;
-
+	
 	for (const auto& card : hand) {
-		if (card.isAce()) {
+		if (card.isAce()) { // 상수함수라 const 객체에서도 호출할 수 있다.
 			Sum += 11; //Ace는 일단 11로 계산한다.
 		}
 		else {

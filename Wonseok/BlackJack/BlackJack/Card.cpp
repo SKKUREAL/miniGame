@@ -5,6 +5,8 @@ Card::Card(int v, std::string f, std::string s) {
 	face = f;
 	suit = s;
 }
+Card::Card()
+	: value(0), suit("None"), face("None") {} // 생성자 초기화 리스트 사용해보기
 
 bool Card::isAce() const {
 	return value == 11; // Ace 초기 value 는 11기 때문에 value ==11로 11이 맞는지 확인

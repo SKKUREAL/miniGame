@@ -10,6 +10,8 @@ public:
 	std::string face; // K Q J A를 위한 필드
 
 	Card(int v, std::string f, std::string s);// 생성자
+
+	Card(); // 기본 생성자 추가
 	
 	bool isAce() const;
 };

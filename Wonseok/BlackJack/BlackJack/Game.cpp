@@ -119,7 +119,7 @@ void Game::startBlackJack() {
 		std::cout << "1. Hit   2. Stay" << std::endl;
 	}
 	if (player.calculateSum() <= 21) {
-		dealerTurn();
+		dealer.dealerTurn(*this); // this 사용
 	}
 
 
@@ -128,16 +128,6 @@ void Game::startBlackJack() {
 	dealer.reset();
 	
 }
-
-// 딜러 추가 턴
-void Game::dealerTurn() {
-	while (dealer.calculateSum() < 17) {
-		std::cout << "Dealer hits." << std::endl;
-		dealer.addCard(drawRandomCard());
-	}
-	std::cout << "Dealer stays." << std::endl;
-}
-
 
 
 // 승자를 결정하는 함수

@@ -30,6 +30,5 @@ public:
 	//덱 초기화 함수
 	void initializeDeck();
 
-	//딜러 턴
-	void dealerTurn();
+
 };
