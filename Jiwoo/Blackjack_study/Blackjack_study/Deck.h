@@ -2,7 +2,9 @@
 #include <iostream>
 #include <vector>
 #include "Card.h"
+
 using namespace std;
+using Hand = vector<Card>;
 
 class Deck
 {
@@ -18,6 +20,8 @@ public:
 	}
 	void Shuffle();
 	void PrintDeck();
+	void DrawCard(int numberToDraw, Hand& hand);
+	void InsertCard(Card&& cardToInsert);
 
 private:
 	vector<Card> mCards;

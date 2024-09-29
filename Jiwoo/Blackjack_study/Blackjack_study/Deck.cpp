@@ -25,3 +25,17 @@ void Deck::PrintDeck()
 		cout << card.getSymbol() << ", " << card.getNumber() << "\n";
 	}
 }
+
+void Deck::DrawCard(int numberToDraw, Hand& hand)
+{
+	while (numberToDraw--)
+	{
+		hand.push_back(mCards.back());
+		mCards.pop_back();
+	}
+}
+
+void Deck::InsertCard(Card&& cardToInsert)
+{
+	mCards.push_back(move(cardToInsert));
+}

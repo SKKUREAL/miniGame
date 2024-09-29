@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
+#include <stdexcept>
 using namespace std;
 
 // 포커 카드 기호와 숫자들. 변경되면 안되므로 const 선언
@@ -39,6 +40,7 @@ public:
 	inline string getSymbol() const { return mSymbol; }
 	inline string getNumber() const { return mNumber; }
     inline int getValue() const { return mValue; }
+    void PrintCard();
 
 private:
 	string mSymbol = "#";

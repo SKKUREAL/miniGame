@@ -14,3 +14,8 @@ void Player::decreaseCredit(int amount)
 {
 	mCredit -= amount;
 }
+
+void Player::addCredit(int amount)
+{
+	mCredit += amount;
+}
