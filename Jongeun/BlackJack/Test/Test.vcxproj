@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4eaf5db2-67ab-49d2-8d0a-2b83e769276c}</ProjectGuid>
-    <RootNamespace>BlackJack</RootNamespace>
+    <ProjectGuid>{d80627cc-de1a-459a-8113-2b4478be2295}</ProjectGuid>
+    <RootNamespace>Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,13 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BlackJack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Deck.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="Card.h" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
