@@ -11,6 +11,7 @@ public:
 	int playerMoney; // 플레이어의 게임 머니
 
 	Game(); // 기본 생성자
+	~Game(); // 소멸자 추가
 
 	// 게임 시작 함수 (메인메뉴)
 	void showStartScreen();
@@ -30,5 +31,6 @@ public:
 	//덱 초기화 함수
 	void initializeDeck();
 
+	static const int initialMoney = 1000; // static 상수를 추가해서 메모리 효율성을 높임 (여러 객체에서 중복적으로 생성되는 것을 방지함)
 
 };

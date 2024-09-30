@@ -3,14 +3,18 @@
 #include <ctime>
 #include<algorithm> // 랜덤 셔플을 위해 필요함
 
-Game::Game() : playerMoney(1000) { // 플레이어 초기 게임 머니 설정
+Game::Game() : playerMoney(initialMoney) { // 플레이어 초기 게임 머니 설정
 	std::srand(static_cast<unsigned>(std::time(0))); // 무작위 시드 설정
 	initializeDeck(); // 게임 시작 시에 덱을 초기화
 }
 
+Game::~Game() {
+	deck.clear(); // 게임이 반복되기 때문에 기존 덱 초기화 해야 함.
+}
+
 // 덱 초기화 함수
 void Game::initializeDeck() {
-	deck.clear(); // 게임이 반복되기 때문에 기존 덱 초기화 해야 함.
+	
 	
 	// 4 개의 문양(슈트)
 	std::vector<std::string> suits = { "Heart", "Diamond", "Club", "Spade" };
