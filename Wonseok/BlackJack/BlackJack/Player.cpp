@@ -32,7 +32,7 @@ int Player::calculateSum() const {
         }
     }
     int aceCount = this->aceCount;
-    while (totalSum > 21 && aceCount > 0) {
+    while (totalSum > BLACKJACK && aceCount > 0) {
         totalSum -= 10;
         aceCount--;
     }

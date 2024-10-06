@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{18B42DB8-2ADA-4A8F-BE85-2CD1EC67BDD6}|ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1\\string.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{18B42DB8-2ADA-4A8F-BE85-2CD1EC67BDD6}|ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1.vcxproj|solutionrelative:ChewingC\u002B\u002B_4.1\\string.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{18B42DB8-2ADA-4A8F-BE85-2CD1EC67BDD6}|ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1.vcxproj|C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1\\4.1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{18B42DB8-2ADA-4A8F-BE85-2CD1EC67BDD6}|ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1.vcxproj|solutionrelative:ChewingC\u002B\u002B_4.1\\4.1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "string.cpp",
+              "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1\\string.cpp",
+              "RelativeDocumentMoniker": "ChewingC\u002B\u002B_4.1\\string.cpp",
+              "ToolTip": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1\\string.cpp",
+              "RelativeToolTip": "ChewingC\u002B\u002B_4.1\\string.cpp",
+              "ViewState": "AQIAACYBAAAAAAAAAAAAADUBAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-05T06:37:51.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "4.1.cpp",
               "DocumentMoniker": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1\\4.1.cpp",
               "RelativeDocumentMoniker": "ChewingC\u002B\u002B_4.1\\4.1.cpp",
               "ToolTip": "C:\\Users\\82105\\Desktop\\Unreal study\\minigame\\miniGame\\Wonseok\\ChewingC\u002B\u002B_4.1\\ChewingC\u002B\u002B_4.1\\4.1.cpp",
               "RelativeToolTip": "ChewingC\u002B\u002B_4.1\\4.1.cpp",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACgAAAABAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-24T06:18:03.57Z",
               "EditorCaption": ""

@@ -3,8 +3,18 @@
 #include "Dealer.h"
 #include <iostream>
 
+// enum class를 이용해서 게임의 상태를 저장
+enum class GameState {
+	PlayerTurn,
+	DealerTurn,
+	GameOver,
+	BlackJack,
+	Push
+};
+
 class Game {
 public:
+	GameState currentState;
 	Player player; //플레이어 객체
 	Dealer dealer; //딜러 객체
 	std::vector<Card> deck; // 카드 덱

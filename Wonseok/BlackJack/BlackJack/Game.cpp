@@ -76,6 +76,7 @@ void Game::showStartScreen() {
 // 블랙잭 게임 시작 함수
 void Game::startBlackJack() {
 	std::cout << "Starting BlackJack!" << std::endl;
+	currentState = GameState::PlayerTurn;
 
 	// 첫 번째 턴
 	dealer.addCard(drawRandomCard());
@@ -90,19 +91,21 @@ void Game::startBlackJack() {
 	std::cout << "Dealer's second card: ???" << std::endl; // 숨김
 
 	// 블랙잭 예외 처리
-	if (player.calculateSum() == 21 && dealer.calculateSum() != 21) {
-		blackJackWin(); // 플레이어 승리
+	if (player.calculateSum() == BLACKJACK && dealer.calculateSum() != BLACKJACK) {
+		blackJackWin();
+		currentState = GameState::BlackJack;
 		player.reset();
 		dealer.reset();
 		return;
 	}
-	else if (dealer.calculateSum() == 21) {
+	else if (dealer.calculateSum() == BLACKJACK) {
+		currentState = GameState::GameOver;
 		std::cout << "Dealer has BlackJack. You lose" << std::endl;
 		player.reset();
 		dealer.reset();
 		return;
 	}
-	else if (player.calculateSum() == 21 && dealer.calculateSum() == 21) {
+	else if (player.calculateSum() == BLACKJACK && dealer.calculateSum() == BLACKJACK) {
 		std::cout << "Both have BlackJack. Push." << std::endl;
 		player.reset();
 		dealer.reset();
@@ -112,17 +115,17 @@ void Game::startBlackJack() {
 	int playerChoice;
 	std::cout << "Player's turn" << std::endl;
 	std::cout << "1. Hit   2. Stay" << std::endl;
-	while (std::cin >> playerChoice && playerChoice == 1 && player.calculateSum() < 21) {
+	while (std::cin >> playerChoice && playerChoice == 1 && player.calculateSum() < BLACKJACK) {
 		player.addCard(drawRandomCard());
 		std::cout << "Player hits" << std::endl;
 		std::cout << "Player's sum" << player.calculateSum() << std::endl;
 
-		if (player.calculateSum() >= 21)
+		if (player.calculateSum() >= BLACKJACK)
 			break;
 		std::cout << "Player's turn" << std::endl;
 		std::cout << "1. Hit   2. Stay" << std::endl;
 	}
-	if (player.calculateSum() <= 21) {
+	if (player.calculateSum() <= BLACKJACK) {
 		dealer.dealerTurn(*this); // this 사용
 	}
 
@@ -142,11 +145,11 @@ void Game::determineWinner() {
 	std::cout << "Player sum:" << playerSum << std::endl;
 	std::cout << "Dealer sum:" << dealerSum << std::endl;
 
-	if (playerSum > 21) {
+	if (playerSum > BLACKJACK) {
 		std::cout << "Player busts. Dealer wins" << std::endl;
 		playerMoney -= 200;
 	}
-	else if (dealerSum > 21) {
+	else if (dealerSum > BLACKJACK) {
 		std::cout << "Dealer busts. Player wins" << std::endl;
 		playerMoney += 100;
 	}
