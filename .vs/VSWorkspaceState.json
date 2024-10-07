@@ -4,8 +4,8 @@
     "\\Jongeun",
     "\\Jongeun\\BlackJack",
     "\\Jongeun\\BlackJack\\BlackJack",
-    "\\Jongeun\\BlackJack\\Test"
+    "\\Jongeun\\BlackJack\\Debug"
   ],
-  "SelectedNode": "\\Jongeun\\BlackJack\\.gitignore",
+  "SelectedNode": "\\Jongeun\\BlackJack\\BlackJack\\BlackJack.cpp",
   "PreviewInSolutionExplorer": false
 }
