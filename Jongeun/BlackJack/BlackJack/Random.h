@@ -1,9 +1,6 @@
 #ifndef RANDOM_MT_H
 #define RANDOM_MT_H
 
-/**
-header only library
-**/
 #include <chrono>
 #include <random>
 
