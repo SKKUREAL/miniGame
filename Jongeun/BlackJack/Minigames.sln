@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlackJack", "BlackJack\Blac
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{D80627CC-DE1A-459A-8113-2B4478BE2295}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Puzzle15", "Puzzle15\Puzzle15.vcxproj", "{C1B34813-420B-4964-8768-D757DD44ACE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{D80627CC-DE1A-459A-8113-2B4478BE2295}.Release|x64.Build.0 = Release|x64
 		{D80627CC-DE1A-459A-8113-2B4478BE2295}.Release|x86.ActiveCfg = Release|Win32
 		{D80627CC-DE1A-459A-8113-2B4478BE2295}.Release|x86.Build.0 = Release|Win32
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Debug|x64.ActiveCfg = Debug|x64
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Debug|x64.Build.0 = Debug|x64
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Debug|x86.ActiveCfg = Debug|Win32
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Debug|x86.Build.0 = Debug|Win32
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Release|x64.ActiveCfg = Release|x64
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Release|x64.Build.0 = Release|x64
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Release|x86.ActiveCfg = Release|Win32
+		{C1B34813-420B-4964-8768-D757DD44ACE3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

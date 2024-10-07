@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Jongeun",
+    "\\Jongeun\\BlackJack",
+    "\\Jongeun\\BlackJack\\BlackJack",
+    "\\Jongeun\\BlackJack\\Test"
   ],
-  "SelectedNode": "\\BlackJack.sln",
+  "SelectedNode": "\\Jongeun\\BlackJack\\.gitignore",
   "PreviewInSolutionExplorer": false
 }

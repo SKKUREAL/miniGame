@@ -1,21 +1,24 @@
 #include <iostream>
 #include <string_view>
 
+//struct test
+//{
+//	int a{};
+//	int b{};
+//};
+
+
 int main()
 {
-	std::string_view str{ "Peach" };
-	std::cout << str << '\n';
+	//const test t1;
+	//test& t2 = t1;
 
-	// Remove 1 character from the left side of the view
-	str.remove_prefix(1);
-	std::cout << str << '\n';
+	int v2 = 3;
+	const int& v = v2;
 
-	// Remove 2 characters from the right side of the view
-	str.remove_suffix(2);
-	std::cout << str << '\n';
+	const int v3 = 3;
+	int& v4 = v3;
 
-	str = "Peach"; // reset the view
-	std::cout << str << '\n';
-
+	
 	return 0;
 }
