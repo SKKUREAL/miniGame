@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4eaf5db2-67ab-49d2-8d0a-2b83e769276c}</ProjectGuid>
-    <RootNamespace>BlackJack</RootNamespace>
+    <ProjectGuid>{c1b34813-420b-4964-8768-d757dd44ace3}</ProjectGuid>
+    <RootNamespace>Puzzle15</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,7 +104,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,13 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BlackJack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Deck.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="Card.h" />
+    <ClCompile Include="Puzzle15.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
