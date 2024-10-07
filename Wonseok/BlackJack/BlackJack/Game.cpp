@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include<algorithm> // 랜덤 셔플을 위해 필요함
+#include<random>
 
 Game::Game() : playerMoney(initialMoney) { // 플레이어 초기 게임 머니 설정
 	std::srand(static_cast<unsigned>(std::time(0))); // 무작위 시드 설정
@@ -31,7 +32,9 @@ void Game::initializeDeck() {
 
 	// 랜덤으로 덱을 섞기
 
-	std::random_shuffle(deck.begin(), deck.end());
+	std::random_device rd;  // 하드웨어 기반 랜덤 생성기
+	std::mt19937 g(rd());   // 의사 난수 생성기 (Mersenne Twister)
+	std::shuffle(deck.begin(), deck.end(), g);  // std::shuffle로 섞기
 }
 
 Card Game::drawRandomCard() {
