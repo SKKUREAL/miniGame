@@ -9,12 +9,14 @@ public:
 	int aceCount;
 
 	Player(); //생성자
+	Player(const Player& other); // 복사 생성자 추가
+	~Player(); // 소멸자 추가
 
 	// 카드 추가 함수
 	void addCard(const Card& card);
 
 	// 현재 카드 합 계산 함수
-	int calculateSum();
+	int calculateSum() const; // const 한수로 변경
 
 	// 플레이어 상태 초기화 함수
 	void reset();

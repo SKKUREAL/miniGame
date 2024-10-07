@@ -2,15 +2,20 @@
 #include <cstdlib>
 #include <ctime>
 #include<algorithm> // 랜덤 셔플을 위해 필요함
+#include<random>
 
-Game::Game() : playerMoney(1000) { // 플레이어 초기 게임 머니 설정
+Game::Game() : playerMoney(initialMoney) { // 플레이어 초기 게임 머니 설정
 	std::srand(static_cast<unsigned>(std::time(0))); // 무작위 시드 설정
 	initializeDeck(); // 게임 시작 시에 덱을 초기화
 }
 
+Game::~Game() {
+	deck.clear(); // 게임이 반복되기 때문에 기존 덱 초기화 해야 함.
+}
+
 // 덱 초기화 함수
 void Game::initializeDeck() {
-	deck.clear(); // 게임이 반복되기 때문에 기존 덱 초기화 해야 함.
+	
 	
 	// 4 개의 문양(슈트)
 	std::vector<std::string> suits = { "Heart", "Diamond", "Club", "Spade" };
@@ -27,7 +32,9 @@ void Game::initializeDeck() {
 
 	// 랜덤으로 덱을 섞기
 
-	std::random_shuffle(deck.begin(), deck.end());
+	std::random_device rd;  // 하드웨어 기반 랜덤 생성기
+	std::mt19937 g(rd());   // 의사 난수 생성기 (Mersenne Twister)
+	std::shuffle(deck.begin(), deck.end(), g);  // std::shuffle로 섞기
 }
 
 Card Game::drawRandomCard() {
@@ -72,6 +79,7 @@ void Game::showStartScreen() {
 // 블랙잭 게임 시작 함수
 void Game::startBlackJack() {
 	std::cout << "Starting BlackJack!" << std::endl;
+	currentState = GameState::PlayerTurn;
 
 	// 첫 번째 턴
 	dealer.addCard(drawRandomCard());
@@ -86,19 +94,21 @@ void Game::startBlackJack() {
 	std::cout << "Dealer's second card: ???" << std::endl; // 숨김
 
 	// 블랙잭 예외 처리
-	if (player.calculateSum() == 21 && dealer.calculateSum() != 21) {
-		blackJackWin(); // 플레이어 승리
+	if (player.calculateSum() == BLACKJACK && dealer.calculateSum() != BLACKJACK) {
+		blackJackWin();
+		currentState = GameState::BlackJack;
 		player.reset();
 		dealer.reset();
 		return;
 	}
-	else if (dealer.calculateSum() == 21) {
+	else if (dealer.calculateSum() == BLACKJACK) {
+		currentState = GameState::GameOver;
 		std::cout << "Dealer has BlackJack. You lose" << std::endl;
 		player.reset();
 		dealer.reset();
 		return;
 	}
-	else if (player.calculateSum() == 21 && dealer.calculateSum() == 21) {
+	else if (player.calculateSum() == BLACKJACK && dealer.calculateSum() == BLACKJACK) {
 		std::cout << "Both have BlackJack. Push." << std::endl;
 		player.reset();
 		dealer.reset();
@@ -108,18 +118,18 @@ void Game::startBlackJack() {
 	int playerChoice;
 	std::cout << "Player's turn" << std::endl;
 	std::cout << "1. Hit   2. Stay" << std::endl;
-	while (std::cin >> playerChoice && playerChoice == 1 && player.calculateSum() < 21) {
+	while (std::cin >> playerChoice && playerChoice == 1 && player.calculateSum() < BLACKJACK) {
 		player.addCard(drawRandomCard());
 		std::cout << "Player hits" << std::endl;
 		std::cout << "Player's sum" << player.calculateSum() << std::endl;
 
-		if (player.calculateSum() >= 21)
+		if (player.calculateSum() >= BLACKJACK)
 			break;
 		std::cout << "Player's turn" << std::endl;
 		std::cout << "1. Hit   2. Stay" << std::endl;
 	}
-	if (player.calculateSum() <= 21) {
-		dealerTurn();
+	if (player.calculateSum() <= BLACKJACK) {
+		dealer.dealerTurn(*this); // this 사용
 	}
 
 
@@ -128,16 +138,6 @@ void Game::startBlackJack() {
 	dealer.reset();
 	
 }
-
-// 딜러 추가 턴
-void Game::dealerTurn() {
-	while (dealer.calculateSum() < 17) {
-		std::cout << "Dealer hits." << std::endl;
-		dealer.addCard(drawRandomCard());
-	}
-	std::cout << "Dealer stays." << std::endl;
-}
-
 
 
 // 승자를 결정하는 함수
@@ -148,11 +148,11 @@ void Game::determineWinner() {
 	std::cout << "Player sum:" << playerSum << std::endl;
 	std::cout << "Dealer sum:" << dealerSum << std::endl;
 
-	if (playerSum > 21) {
+	if (playerSum > BLACKJACK) {
 		std::cout << "Player busts. Dealer wins" << std::endl;
 		playerMoney -= 200;
 	}
-	else if (dealerSum > 21) {
+	else if (dealerSum > BLACKJACK) {
 		std::cout << "Dealer busts. Player wins" << std::endl;
 		playerMoney += 100;
 	}
