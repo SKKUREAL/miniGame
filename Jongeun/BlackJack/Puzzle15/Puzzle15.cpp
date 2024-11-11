@@ -1,3 +1,4 @@
+#include <array>
 #include <cassert>
 #include <iostream>
 #include <limits>
@@ -23,7 +24,6 @@ public:
         :m_type(type)
     {
     }
-
     Type getType() const
     {
         return m_type;
@@ -68,6 +68,37 @@ std::ostream& operator<<(std::ostream& stream, Direction dir)
     assert(0 && "Unsupported direction was passed!");
     return (stream << "unknown direction");
 }
+
+struct Point
+{
+    int x{};
+    int y{};
+
+    friend bool operator==(Point p1, Point p2)
+    {
+        return p1.x == p2.x && p1.y == p2.y;
+    }
+
+    friend bool operator!=(Point p1, Point p2)
+    {
+        return !(p1 == p2);
+    }
+
+    Point getAdjacentPoint(Direction dir) const
+    {
+        switch (dir.getType())
+        {
+        case Direction::up:     return Point{ x,     y - 1 };
+        case Direction::down:   return Point{ x,     y + 1 };
+        case Direction::left:   return Point{ x - 1, y };
+        case Direction::right:  return Point{ x + 1, y };
+        default:                break;
+        }
+
+        assert(0 && "Unsupported direction was passed!");
+        return *this;
+    }
+};
 
 namespace UserInput
 {
@@ -180,8 +211,72 @@ public:
         return stream;
     }
 
+    Point getEmptyTilePos() const
+    {
+        for (int y = 0; y < s_size; ++y)
+            for (int x = 0; x < s_size; ++x)
+                if (m_tiles[y][x].isEmpty())
+                    return { x,y };
+
+        assert(0 && "There is no empty tile in the board!!!");
+        return { -1,-1 };
+    }
+
+    static bool isValidTilePos(Point pt)
+    {
+        return (pt.x >= 0 && pt.x < s_size)
+            && (pt.y >= 0 && pt.y < s_size);
+    }
+
+    void swapTiles(Point pt1, Point pt2)
+    {
+        std::swap(m_tiles[pt1.y][pt1.x], m_tiles[pt2.y][pt2.x]);
+    }
+
+    // Compare two boards to see if they are equal
+    friend bool operator==(const Board& f1, const Board& f2)
+    {
+        for (int y = 0; y < s_size; ++y)
+            for (int x = 0; x < s_size; ++x)
+                if (f1.m_tiles[y][x].getNum() != f2.m_tiles[y][x].getNum())
+                    return false;
+
+        return true;
+    }
+
+    // returns true if user moved successfully
+    bool moveTile(Direction dir)
+    {
+        Point emptyTile{ getEmptyTilePos() };
+        Point adj{ emptyTile.getAdjacentPoint(-dir) };
+
+        if (!isValidTilePos(adj))
+            return false;
+
+        swapTiles(adj, emptyTile);
+        return true;
+    }
+
+    bool playerWon() const
+    {
+        static Board s_solved{};  // generate a solved board
+        return s_solved == *this; // player wins if current board == solved board
+    }
+
+    void randomize()
+    {
+        // Move empty tile randomly 1000 times
+        // (just like you would do in real life)
+        for (int i = 0; i < 1000; )
+        {
+            // If we are able to successfully move a tile, count this
+            if (moveTile(Direction::getRandomDirection()))
+                ++i;
+        }
+    }
+
 private:
-    static constexpr int s_size { 4 };
+    static const int s_size { 4 };
     Tile m_tiles[s_size][s_size]{
         Tile{ 1 }, Tile { 2 }, Tile { 3 } , Tile { 4 },
         Tile { 5 } , Tile { 6 }, Tile { 7 }, Tile { 8 },
@@ -192,15 +287,10 @@ private:
 int main()
 {
     Board board{};
+    board.randomize();
     std::cout << board;
 
-    std::cout << "Generating random direction... " << Direction::getRandomDirection() << '\n';
-    std::cout << "Generating random direction... " << Direction::getRandomDirection() << '\n';
-    std::cout << "Generating random direction... " << Direction::getRandomDirection() << '\n';
-    std::cout << "Generating random direction... " << Direction::getRandomDirection() << "\n\n";
-
-    std::cout << "Enter a command: ";
-    while (true)
+    while (!board.playerWon())
     {
         char ch{ UserInput::getCommandFromUser() };
 
@@ -214,8 +304,11 @@ int main()
         // Handle direction commands
         Direction dir{ UserInput::charToDirection(ch) };
 
-        std::cout << "You entered direction: " << dir << '\n';
+        bool userMoved{ board.moveTile(dir) };
+        if (userMoved)
+            std::cout << board;
     }
 
+    std::cout << "\n\nYou won!\n\n";
     return 0;
 }
